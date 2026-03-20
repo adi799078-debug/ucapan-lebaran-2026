@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lebaran Ceria ✨</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
     <style>
-        /* Gaya Dasar & Latar Belakang */
         body {
             margin: 0;
             padding: 0;
@@ -14,20 +13,10 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            background: linear-gradient(135deg, #FFB7C5, #9ADF8F, #AEC6CF); /* Warna pastel meriah */
+            background: linear-gradient(135deg, #FFB7C5, #AEC6CF); /* Warna pastel meriah */
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             overflow: hidden;
             text-align: center;
-        }
-
-        /* Latar Belakang Bintang Jauh */
-        .stars {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: url('https://cdnjs.cloudflare.com/ajax/libs/patternbolt/1.2.1/patternbolt.min.css') repeat;
-            opacity: 0.1;
         }
 
         /* Kartu Utama Bergetar Gemas */
@@ -50,38 +39,19 @@
             100% { transform: scale(1); opacity: 1; }
         }
 
-        /* Stiker Lucu Utama */
-        .main-sticker {
-            font-size: 100px;
-            color: #FF6B6B;
-            margin-bottom: 20px;
-            animation: floatSticker 3s infinite ease-in-out;
-            display: inline-block;
-        }
-
-        /* Stiker Tambahan Melayang */
-        .float-icon {
-            position: absolute;
-            font-size: 30px;
-            color: #fff;
-            animation: floatIcon 4s infinite ease-in-out;
-        }
-
-        @keyframes floatSticker {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-25px) rotate(10deg); }
-        }
-
-        @keyframes floatIcon {
-            0%, 100% { transform: translateY(0); opacity: 0.7; }
-            50% { transform: translateY(-15px) rotate(15deg); opacity: 1; }
+        /* Stiker Animasi Masjid */
+        .sticker {
+            width: 150px;
+            height: 150px;
+            margin: 0 auto;
+            display: block;
         }
 
         /* Teks */
         h1 {
-            color: #4ECDC4;
+            color: #fff;
             font-size: 32px;
-            text-shadow: 2px 2px 0px #fff;
+            text-shadow: 2px 2px 0px #FFB7C5;
             margin: 10px 0;
         }
 
@@ -95,7 +65,7 @@
         /* Tombol Spesial */
         .btn-celebrate {
             background: #fff;
-            color: #4ECDC4;
+            color: #FFB7C5;
             border: none;
             padding: 15px 35px;
             border-radius: 50px;
@@ -112,19 +82,17 @@
             box-shadow: 0 15px 25px rgba(0,0,0,0.2);
         }
 
-        /* Efek Confetti (Disembunyikan) */
-        .confetti {
-            display: none;
+        /* Stiker Ketupat Tambahan Melayang */
+        .ketupat {
             position: absolute;
-            width: 10px;
-            height: 10px;
-            background: #FFD700;
-            border-radius: 50%;
-            animation: fallConfetti 2s ease-out;
+            width: 50px;
+            height: 50px;
+            animation: float 3s infinite ease-in-out;
         }
 
-        @keyframes fallConfetti {
-            to { transform: translateY(100vh); opacity: 0; }
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-10px) rotate(15deg); }
         }
     </style>
 </head>
@@ -132,12 +100,10 @@
     <div class="stars"></div>
 
     <div class="card">
-        <div class="float-icon" style="top: -20px; left: -20px;"><i class="fa-solid fa-moon"></i></div>
-        <div class="float-icon" style="top: 20px; right: -20px;"><i class="fa-solid fa-drum"></i></div>
-        <div class="float-icon" style="bottom: 20px; left: -20px;"><i class="fa-solid fa-mosque"></i></div>
-        <div class="float-icon" style="bottom: -20px; right: -20px;"><i class="fa-solid fa-hands-praying"></i></div>
+        <lottie-player class="ketupat" style="top: -20px; left: -20px;" src="https://assets10.lottiefiles.com/packages/lf20_m6h6h7e8.json" background="transparent" speed="1" loop autoplay></lottie-player>
+        <lottie-player class="ketupat" style="top: 20px; right: -20px;" src="https://assets10.lottiefiles.com/packages/lf20_m6h6h7e8.json" background="transparent" speed="1.2" loop autoplay></lottie-player>
 
-        <div class="main-sticker">🕌🤲✨</div>
+        <lottie-player class="sticker" src="https://assets10.lottiefiles.com/packages/lf20_m6h6h7e8.json" background="transparent" speed="1" loop autoplay></lottie-player>
         
         <h1>Selamat Idul Fitri!</h1>
         <p>Beli baju baru di pasar raya,<br>Jangan lupa beli kopiahnya.<br>Salah dan khilaf mohon dimaafkan ya,<br>Agar lebaran makin bahagia! 🥳</p>
@@ -145,8 +111,7 @@
         <button class="btn-celebrate" onclick="celebrate()">Klik Untuk Pesta!</button>
         
         <div id="pesan-spesial" style="display:none; margin-top:20px; color:#fff; font-weight:bold; font-size: 20px; animation: fadeIn 1s;">
-         Ngaturaken sedoyo kalepatan kulo, kulo katah lepat nyuwun pangapunten.
-            Minal Aidin Wal Faizin! <br> Semoga berkah melimpah untukmu. 🌙⭐ <br> Makan ketupat, jangan lupa bagi THR! 😂🌙
+            Minal Aidin Wal Faizin! <br> Makan ketupat, jangan lupa bagi THR! 😂🌙
         </div>
     </div>
 
@@ -154,17 +119,6 @@
         function celebrate() {
             document.getElementById('pesan-spesial').style.display = 'block';
             document.querySelector('.btn-celebrate').style.display = 'none';
-            
-            // Membuat confetti acak
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.classList.add('confetti');
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.backgroundColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                confetti.style.animationDelay = Math.random() * 0.5 + 's';
-                confetti.style.display = 'block';
-                document.body.appendChild(confetti);
-            }
         }
     </script>
 </body>
